@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822173035) do
+ActiveRecord::Schema.define(version: 20160822181658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "followers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -24,10 +30,21 @@ ActiveRecord::Schema.define(version: 20160822173035) do
     t.index ["robot_id"], name: "index_posts_on_robot_id", using: :btree
   end
 
+  create_table "robot_followers", force: :cascade do |t|
+    t.integer  "robot_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["follower_id"], name: "index_robot_followers_on_follower_id", using: :btree
+    t.index ["robot_id"], name: "index_robot_followers_on_robot_id", using: :btree
+  end
+
   create_table "robots", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "robot_followers", "followers"
+  add_foreign_key "robot_followers", "robots"
 end

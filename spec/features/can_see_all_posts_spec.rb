@@ -12,8 +12,10 @@ RSpec.feature "Can see all posts" do
 
     expect(page).to have_content "My post"
     expect(page).to have_content "Check out these video games for robots"
+    expect(page).to have_content "-MX592"
 
     expect(page).to have_content "Another post"
     expect(page).to have_content "Skateboards for robots here"
+    expect(page).to have_content "-ZL672"
   end
 end
