@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Robot can see other robots profile" do
-  scenario "Robot sees who the robot is following and who is follow the robot" do
+  scenario "Robot sees who the number of robots a robot is following and the number of robots following the robot" do
     robot1 = Robot.create(name: "ZI123")
     robot1.posts.create(title: "Binary",
                         content: "Talented Robots: recite 1 billion plus binary digits")
