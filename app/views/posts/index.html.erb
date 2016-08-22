@@ -1,5 +1,7 @@
-<% @posts.each do |post| %>
-  <%= post.title %>
-  <%= post.content %>
-  <%= link_to "-#{post.robot.name}", robot_path(post.robot.id) %>
-<% end %>
+<ul>
+  <% @posts.each do |post| %>
+    <h4><%= post.title %></h4>
+    <p><%= post.content %></p>
+    <p><%= link_to "-#{post.robot.name}", robot_path(post.robot.id) %></p>
+  <% end %>
+</ul>

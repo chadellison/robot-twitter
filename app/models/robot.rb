@@ -5,6 +5,6 @@ class Robot < ApplicationRecord
   validates_uniqueness_of :name
 
   def following
-    Robot.joins(:followers).where(followers: {name: name}).pluck(:name)
+    Robot.joins(:followers).where(followers: {name: name}).pluck(:name).uniq
   end
 end

@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a brief exercise to experiment with a follower and following relationship among users (or in this case, robots).
 
-Things you may want to cover:
+Instructions:
 
-* Ruby version
+Clone down
 
-* System dependencies
+run bundle install
 
-* Configuration
+run rails db:seed to load the seed data
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+run rspec to run the test suite

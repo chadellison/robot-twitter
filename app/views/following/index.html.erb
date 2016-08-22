@@ -1,3 +1,5 @@
-<% @following.each do |followed| %>
-  <%= link_to "#{followed}", robot_path(Robot.find_by(name: followed).id) %>
-<% end %>
+<ul>
+  <% @following.each do |followed| %>
+    <li><%= link_to "#{followed}", robot_path(Robot.find_by(name: followed).id) %></li>
+  <% end %>
+</ul>

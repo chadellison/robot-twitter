@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+class RandomName
+  attr_reader :names
+  def initialize
+    @names = []
+  end
+
+  def generate_name
+    name = ""
+    letters = ("A".."Z").to_a
+    2.times { name += letters.sample }
+    3.times { name += rand(0..9).to_s }
+    generate_name if names.include?(name)
+    names << name
+    name
+  end
+end
+
+all_names = RandomName.new
+
+100.times do |n|
+  robot = Robot.create(name: all_names.generate_name)
+  robot.posts.create(title: "binary version #{n}", content: "#{n * robot.id}")
+  follower = Follower.create(name: robot.name)
+  robot.followers << Follower.limit(n).order("RANDOM()")
+  robot.followers = robot.followers.uniq
+  puts robot.name
+end
