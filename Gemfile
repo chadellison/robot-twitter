@@ -16,6 +16,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara-webkit'
 end
 
 group :development do

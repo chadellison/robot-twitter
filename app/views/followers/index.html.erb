@@ -1,0 +1,3 @@
+<% @followers.each do |follower| %>
+  <%= link_to "#{follower.name}", robot_path(Robot.find_by(name: follower.name).id) %>
+<% end %>

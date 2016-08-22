@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root "posts#index"
+
+  resources :robots, only: [:show]
+
+  get "followers/:id", to: "followers#index", as: :followers
+  get "following/:id", to: "following#index", as: :following
 end
