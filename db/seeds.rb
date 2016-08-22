@@ -17,7 +17,7 @@ end
 
 all_names = RandomName.new
 
-100.times do |n|
+500.times do |n|
   robot = Robot.create(name: all_names.generate_name)
   robot.posts.create(title: "binary version #{n}", content: "#{n * robot.id}")
   follower = Follower.create(name: robot.name)
